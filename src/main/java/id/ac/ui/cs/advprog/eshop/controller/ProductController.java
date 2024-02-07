@@ -51,9 +51,8 @@ public class ProductController {
 
     @PutMapping("/edit/{productId}")
     public String updateProduct(@PathVariable("productId") String productId, @ModelAttribute Product updatedProduct) {
-        Product product = service.getProduct(productId);
-        product.setProductName(updatedProduct.getProductName());
-        product.setProductQuantity(updatedProduct.getProductQuantity());
+        // Product product = service.getProduct(productId);
+        service.editProduct(updatedProduct);
         return "redirect:/product/list";
     }
 }

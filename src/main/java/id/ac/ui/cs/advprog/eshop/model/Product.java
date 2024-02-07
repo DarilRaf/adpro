@@ -14,4 +14,14 @@ public class Product {
         staticId++;
         return Integer.toString(staticId);
     }
+
+    public boolean editProduct(Product edittedProduct){
+        if(edittedProduct.productQuantity >= 0){
+            this.productName = edittedProduct.productName;
+            this.productQuantity = edittedProduct.productQuantity;
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
