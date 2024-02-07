@@ -42,4 +42,18 @@ public class ProductController {
         return "redirect:/product/list";
     }
 
+    @GetMapping("/edit/{productId}")
+    public String showEditForm(@PathVariable("productId") String productId, Model model) {
+        Product product = service.getProduct(productId);
+        model.addAttribute("product", product);
+        return "editProduct";
+    }
+
+    @PutMapping("/edit/{productId}")
+    public String updateProduct(@PathVariable("productId") String productId, @ModelAttribute Product updatedProduct) {
+        Product product = service.getProduct(productId);
+        product.setProductName(updatedProduct.getProductName());
+        product.setProductQuantity(updatedProduct.getProductQuantity());
+        return "redirect:/product/list";
+    }
 }

@@ -37,4 +37,10 @@ public class ProductServiceImpl implements ProductService {
         Product deletedProduct = productRepository.deleteById(productId);
         return deletedProduct != null; // Return true if a product was deleted, false otherwise
     }
+    
+    @Override
+    public Product getProduct(String productId) {
+        Product edittedProduct = productRepository.getProduct(productId);
+        return edittedProduct; // Return true if a product was deleted, false otherwise
+    }
 }

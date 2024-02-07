@@ -30,5 +30,12 @@ public class ProductRepository {
         return null;
     }
 
-    
+    public Product getProduct(String productId) {
+        for (Product product : productData) {
+            if (product.getProductId().equals(productId)) {
+                return product;
+            }
+        }
+        return null;
+    }
 }
