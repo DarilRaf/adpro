@@ -17,6 +17,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product create(Product product) {
+        String id = Product.setNewId();
+        product.setProductId(id);
         productRepository.create(product);
         return product;
     }
@@ -28,5 +30,11 @@ public class ProductServiceImpl implements ProductService {
         List<Product> allProduct = new ArrayList<>();
         productIterator.forEachRemaining(allProduct::add);
         return allProduct;
+    }
+
+    @Override
+    public Boolean deleteById(String productId) {
+        Product deletedProduct = productRepository.deleteById(productId);
+        return deletedProduct != null; // Return true if a product was deleted, false otherwise
     }
 }

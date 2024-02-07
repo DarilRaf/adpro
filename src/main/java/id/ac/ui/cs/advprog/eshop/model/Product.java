@@ -8,4 +8,10 @@ public class Product {
     private String productId;
     private String productName;
     private int productQuantity;
+    static int staticId;
+
+    static public String setNewId() {
+        staticId++;
+        return Integer.toString(staticId);
+    }
 }
